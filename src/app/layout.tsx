@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Inter } from "next/font/google";
+import { AppHeader } from "@/components/app-header";
+import { AppFooter } from "@/components/app-footer";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Reimagify",
@@ -15,13 +20,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <div className="flex flex-1">
-            <main className="flex-1 p-6">{children}</main>
+      <body className={inter.className}>
+        <div className="flex min-h-screen flex-col">
+          <AppHeader />
+          <div className="flex-1">
+            <SidebarProvider>
+              <AppSidebar />
+              <main>
+                <SidebarTrigger />
+                {children}
+              </main>
+            </SidebarProvider>
           </div>
-          <Footer />
+          <AppFooter />
         </div>
       </body>
     </html>

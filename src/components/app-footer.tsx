@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
-export function Footer() {
+export function AppFooter() {
   return (
     <footer className="bg-gray-100">
       <div className="container mx-auto px-4 py-12">

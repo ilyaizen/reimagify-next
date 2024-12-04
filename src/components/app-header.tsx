@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export function Header() {
+export function AppHeader() {
   return (
-    <header className="bg-white border-b">
+    <header className="sticky top-0 bg-white/80 backdrop-blur-sm border-b z-10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-2xl font-bold text-blue-600">
